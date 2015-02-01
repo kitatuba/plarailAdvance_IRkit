@@ -1,11 +1,11 @@
 oh-my-zsh plugin for Plarail Advance with IRKit
 ====
 
-[oh-my-zhs](https://github.com/robbyrussell/oh-my-zsh)'s plugin for control [Plarail Advance](http://www.takaratomy.co.jp/products/plarail/plarail_advance/) equip [ACS-01](http://www.takaratomy.co.jp/products/lineup/detail/plarail-ad817536.html) wiht [IRKit](http://getirkit.com/)
+[oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)'s plugin for control [Plarail Advance](http://www.takaratomy.co.jp/products/plarail/plarail_advance/) equip [ACS-01](http://www.takaratomy.co.jp/products/lineup/detail/plarail-ad817536.html) wiht [IRKit](http://getirkit.com/)
 
 ## Requirement
 
-* [oh-my-zhs](https://github.com/robbyrussell/oh-my-zsh) 
+* [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) 
 * [IRKit](http://getirkit.com/)
 
 ## Install
