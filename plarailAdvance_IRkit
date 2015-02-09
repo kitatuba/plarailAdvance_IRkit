@@ -1,18 +1,26 @@
-if [ -z "$IRkit_CKEY" ]; then
+_setClientKey() {
 	echo "configure clientkey for IRKit:"
 	read _ckey
-	export IRkit_CKEY=$_ckey
-fi
+	export IRkit_CKEY=$_ckey && echo "clientkey for IRKit:$IRKit_CKEY"
+}
 
-if [ -z "$IRkit_DID" ]; then
+_setDeviceID() {
 	echo "configure deviceid for IRKit:"
 	read _did
-	export IRkit_DID=$_did
-fi
+	export IRkit_DID=$_did && echo "deviceid for IRKit:$IRKit_DID"
+}
 
 plarail() {
 
-	_usage="usage: plarail [leave|-l] [stop|-s] [reduce|-r] [help|-h]"
+	_usage="usage: plarail [leave|-l] [stop|-s] [reduce|-r] [help|-h] [config|-c]"
+
+	if [ -z "$IRKit_CKEY" ]; then
+		_setClientKey
+	fi
+
+	if [ -z "$IRKit_DID" ]; then
+		_setDeviceID
+	fi
 
 	if [ $# -eq 0 ]; then
 		echo "${_usage}"
@@ -39,6 +47,11 @@ plarail() {
 				-d "clientkey=${IRkit_CKEY}" \
 				-d "deviceid=${IRkit_DID}" \
 				-d 'message={"format":"raw","freq":38,"data":[1073,1514,1073,1514,2626,1037,2626,1037,2626,1037,2626,935,1111,1514,1111,34665,1073,1514,1073,1514,2451,1150,2451,1002,2718,1002,2718,1002,1002,1679,1073,65535,0,65535,0,47245,1073,1514,1073,1514,2626,1037,2626,1037,2626,935,2626,935,1073,1567,1073,34665,1073,1514,1073,1514,2537,1111,2537,1111,2537,968,2718,968,968,1679,1073]}'
+			return
+			;;
+		config|-c)
+			_setClientKey
+			_setDeviceID
 			return
 			;;
 		*)
